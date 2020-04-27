@@ -6,7 +6,7 @@ const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User.js');
 
-// @route    GET api/users
+// @route    GET api/admin/users
 // @desc     Get all users
 // @access   Public
 router.get('/admin/users', async (req, res) => {
