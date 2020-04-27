@@ -27,9 +27,9 @@ router.get('/admin/users', async (req, res) => {
 router.post(
   '/users',
   [
-    check('nickname', 'Nickname is required').not().isEmpty(),
-    check('username', 'Username is required').not().isEmpty(),
-    check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+    check('nickname', 'Nickname is required or not valid').isLength({ min: 2, max: 11 }),
+    check('username', 'Username is required or not valid').isLength({ min: 2, max: 50 }),
+    check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6, max: 200 }),
     check('status'  , 'Status is required').not().isEmpty()
   ],
   async (req, res) => {
