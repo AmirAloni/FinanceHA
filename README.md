@@ -4,7 +4,7 @@ Users management REST API developed with NodeJs & mongoBD on AWS.
 
 Packeges to start -  npm i express express-validator bcryptjs config mongoose
 
-Deployed on Heroku: https://limitless-journey-82462.herokuapp.com  
+Deployed on Heroku: https://limitless-journey-82462.herokuapp.com
 
 Get all users - fetch all users data from MongoDB into Json list, without the password field.  
 HTTP GET - api/admin/users.      
