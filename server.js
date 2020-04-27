@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const path = require('path');
 
 const app = express();
 
@@ -11,7 +12,14 @@ app.use(express.json());
 
 app.use('/api', require('./routes/api/users'));
 
-app.get('/', (req, res)=> res.send('API Running'));
+if (process.env.NODE_ENV === 'production') {
+
+    app.use(express.static('build'));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'build'));
+    });
+  }
 
 const PORT = process.env.PORT || 5000;
 

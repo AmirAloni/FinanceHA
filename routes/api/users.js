@@ -11,7 +11,7 @@ const User = require('../../models/User.js');
 // @access   Public
 router.get('/admin/users', async (req, res) => {
     try {
-      const users = await User.find().sort({ create_time: -1 });
+      const users = await User.find().select('-password').sort({ create_time: -1 });
       res.json(users);
     } catch (err) {
       console.error(err.message);
